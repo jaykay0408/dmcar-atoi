@@ -2,7 +2,7 @@
 Autonomous Car project in AtoI Lab : AtoI-Car Version
 
 -   If you are using PiCar, i.e., Picar V2.0, go to https://github.com/jaykay0408/dmcar-student
--   If you are using new PiCar, i.e., Picar-X, go to https://github.com/jaykay0408/dmcar-new)
+-   If you are using new PiCar, i.e., Picar-X, go to https://github.com/jaykay0408/dmcar-new
 
 **Objectives**:
 1.  Understanding AI with Deep Learning and Computer Vision
@@ -26,55 +26,46 @@ project GitHub site
 
 |                  Component                 |  Price($) | Quantity |                      URL                      |
 |:-----------------------------------------------|----------:|:--------:|:----------------------------------------------|
-| SunFounder Smart Video Car Kit V2.0        |    115.00 |     1    | https://www.amazon.com/dp/B06XWSVLL8              |
-| Raspberry Pi 4 Model B - 4GB RAM .         |     35.00 |     1    | https://vilros.com/products/raspberry-pi-4-4gb-ram|
-| Raspberry Pi 4 Power Supply (USB-C) .      |      9.99 |     1    | https://www.amazon.com/dp/B07TYQRXTK/             |
-| SanDisk Ultra 32GB MicroSD Memory Card     |      7.99 |     1    | https://www.amazon.com/dp/B073JWXGNT/             |
-| micro HDMI male to HDMI female cable .     |      6.99 |     1    | https://www.amazon.com/dp/B00B2HORKE/             |
+| Elecrow 4WD Chassis Smart Car S3003        |     35.00 |     1    | https://www.aliexpress.com/item/32787752135.html  |
+|                                            |     49.50 |          | [Offical Elecrow site](https://www.elecrow.com/4wd-smart-car-robot-chassis-for-arduino-servo-steering.html)        |   
+| * Geekworm Raspberry Pi 4B Motor HAT       |     28.59 |     1    | https://www.amazon.com/dp/B0721MTJ3P/             |
+| * Raspberry Pi 4 Model B - 4GB RAM         |     35.00 |     1    | https://vilros.com/products/raspberry-pi-4-4gb-ram|
+| * Raspberry Pi 4 Power Supply (USB-C)      |      9.99 |     1    | https://www.amazon.com/dp/B07TYQRXTK/             |
+| * SanDisk Ultra 32GB MicroSD Memory Card   |      7.99 |     1    | https://www.amazon.com/dp/B073JWXGNT/             |
+| * micro HDMI male to HDMI female cable     |      6.99 |     1    | https://www.amazon.com/dp/B00B2HORKE/             |
 | Black Electrical Tape                      |     10.00 |     6    | https://www.amazon.com/dp/B0143LD8QY/             |
 | Wooden Stop Sign                           |     12.99 |     1    | https://www.amazon.com/dp/B076FL4HSK/             |
 | Google Coral USB Accelerator               |     59.99 |     1    | https://coral.ai/products/accelerator             |
-| USB Web Camera (120 degree)                |      6.99 |     1    | https://www.amazon.com/dp/B08G48M1XH/             | 
-| 18650 Batteries 6000mah 3.7v With Charger  |      8.64 |     1    | [Ebay link](https://www.ebay.com/p/4pcs-18650-Batteries-6000mah-3-7v-Rechargeable-Li-ion-Battery-With-Charger/23024017467?iid=382745853004)                                              |
-| ***Total Price per Car***                        | ***250 ~ 270*** |     1    |                                                   |
+| * USB Web Camera (120 degree)              |      6.99 |     1    | https://www.amazon.com/dp/B08G48M1XH/             | 
+| * 18650 Batteries 6000mah 3.7v With Charger|      8.64 |     1    | [Ebay link](https://www.ebay.com/p/4pcs-18650-Batteries-6000mah-3-7v-Rechargeable-Li-ion-Battery-With-Charger/23024017467?iid=382745853004)                                              |
+| ***Total Price per Car***                        | ***120 ~ 270*** |     1    |                                                   |
 
+* Exclue these items, if you already have AtoI Sensor Kit
 ![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/picar-kit.jpg)
 
 ## Phase 1: Assembly an Autonomous Vehicle
 
 Assembly Instruction at http://bit.ly/DMCAR1
 
-As an autonomous vehicle for this lab, we are going to use "Smart
-Video Car Kit V2.0 for Raspberry Pi" as below:
--   Model: Sunfounder Smart Video Car Kit V2.0 for Raspberry Pi
+As an autonomous vehicle for this lab, we are going to use "Elecrow 4WD Chassis Smart Car" as below:
+-   Model: Elecrow 4WD Chassis Smart Car
 -   Name in this project: AtoI-Car
--   URL: <https://www.sunfounder.com/smart-video-car-kit-v2-0.html>
+-   URL: <https://www.elecrow.com/4wd-smart-car-robot-chassis-for-arduino-servo-steering.html>
 
-![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/image1.jpg)
+![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/atoi-car.jpg)
 
 You can assembly a car using the instruction included in a box. However,
 the quality of printed images is not clear, so you should be very
-careful to assembly the car. The only difference point is the location
-of camera. In order to provide a wide angle of camera, you can setup a
-camera in a middle of body (instead of the front) as shown in a figure
-below.
+careful to assembly the car. 
 
-![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/image2.jpg)
+In addition, you need to follow the instruction “Servo Calibration” before you secure 3 servos (pan, tilt and steering).  
 
-Note that pan and tilt servos for a camera will not be used for the
-project. However, you still need to install them to mount a camera
-correctly. In case a new USB camera (wide-angle) is used, you can mount a USB camera on pan and tilt part.
+Before the assembly, calibrate a servo motor by checking 90 degree of a servo arm
+-   Connect a servo motor to Motor HAT contoller before assembling each servo 
+-   You need to plug the servo pin into Channel 1 and keep the power on.   
+-   Then, fix a servo arm 90 degree position as shown below
 
-In addition, you need to follow the instruction “Configure the Servo to 90 degree” before you secure 3 servos (pan, tilt and steering). Run “picar servo-install” on your Raspberry Pi until you complete the assembly. 
-
-After the assembly, calibrate the car by following the instruction on a manual and keep the calibration results from the following config file:
-
-    $ cat /home/pi/SunFounder_PiCar-V/remote_control/remote_control/driver/config
-    forward_A = 0
-    forward_B = 0
-    turning_offset = 14
-    pan_offset = -64
-    tilt_offset = 30
+![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/atoi-cali.jpg)
 
 ***[Optional] Understanding Raspberry Pi***
 - If you are not familiar with Raspberry Pi 4, learn Raspberry Pi first at http://bit.ly/DMCAR2 
@@ -88,11 +79,13 @@ After the assembly, calibrate the car by following the instruction on a manual a
 
 ## Phase 2: Setting-Up Raspberry Pi
 
-DM-Car has 3 PCB as below:
--   Robot HATS: Connecting Raspberry Pi into controllers
--   PCA 9685 PWM Driver: controlling 1 servos for front steering wheel
-    and 2 servos for pan and tilt of a camera
--   TB6612 Motor Driver: controlling 2 servos for back wheels
+AtoI-Car has Raspberry Pi 4B Motor HAT(Controller) that includes the following functions:
+-   Up to 4 bi-directional DC motors with individual 8-bit speed selection (so, about 0.5% resolution)
+-   Up to 2 stepper motors (unipolar or bipolar) with single coil, double coil, interleaved or micro-stepping.
+-   Up to 4 Channel 12-bit PWM/Servo(5V)
+-   One Infrared Receiver(GPIO26)
+
+![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/atoi-control.jpg)
 
 In this project, we are going to use Raspberry Pi 4 to control
 servos using Python. Due to the limited time, an instructor will provide
@@ -227,14 +220,14 @@ the following functionalities:
 First, download the autonomous vehicle DM-Car program from Github site. First,
 login Raspberry Pi using VNC viewer (or ssh).
  
-    $ git clone https://github.com/jaykay0408/dmcar-student
+    $ git clone https://github.com/jaykay0408/dmcar-atoi
 
 Start virtualenv (name 'picar3')
 
     $ workon picar3
     $ dmcar-student
 
-dmcar-student consist of the following files and directory:
+dmcar-atoi consist of the following files and directory:
 
 ![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/image6.jpg)
 
@@ -290,28 +283,25 @@ dmcar-student consist of the following files and directory:
     3. fw = front\_wheels.Front\_Wheels(debug=False, db=db\_file)
         - front wheels contral
         ```
-        bw.ready()
-        bw.speed = 50
-        bw.forward()
-        bw.backward()
-        bw.stop()
+        bw.setSpeed(50)
+        bw.run(Raspi_MotorHAT.FORWARD);
+        bw.run(Raspi_MotorHAT.BACKWARD);
+        bw.setSpeed(0)
+        bw.run(Raspi_MotorHAT.RELEASE)
         ```
     4. bw = back\_wheels.Back\_Wheels(debug=False, db=db\_file)
         - back wheels control
         ```
-        fw.ready()
-        fw.turn_left()
-        fw.turn_right()
-        fw.turn_straight()
+        ANGLE = 90
         fw.turn(ANGLE)
         ```
     5. SPEED
-        - Speed of DM-Car: range from 0 to 100
-        - For testing purpose: 25 \~ 50 
+        - Speed of DM-Car: range from 0 to 255
+        - For testing purpose: 50 \~ 100 
     6. ANGLE
-        - 90 (Straight), 45 (45 left), 135 (45 right)
--   picar
-    1. directory for servos (2 back wheels and 1 front wheels) in a car
+        - 90 (Straight), 65 (25 left), 115 (25 right)
+-   atoicar
+    1. directory for servos (1 back wheels and 1 front wheels) in a car
         mostly doesn\'t have to change
 -   model_stop_not_stop
     1. directory for building stop_not_stop.model for dmcar.py
@@ -323,15 +313,6 @@ dmcar-student consist of the following files and directory:
     2. dmcar_model.py
 -   models
     1. directory to keep created models
-
-Apply calibration values to DM-Car program either editing or copying config file.
-```
-$ cp /home/pi/SunFounder_PiCar-V/remote_control/remote_control/driver/config /home/pi/dmcar-student/picar/config
-```
-OR
-```
-Edit /home/pi/dmcar-student/picar/config file with the calibration values from Phase 1.
-```
 
 ***Homework: Submit the followings:***
 -   How to improve the lane detection
@@ -349,7 +330,7 @@ You will use a popular, open-source computer vision package, called OpenCV, to h
 -   Start Terminal, picar3 virtual environment, and go to a directory
     ```
     $ workon picar3
-    (picar3) $ cd dmcar-student
+    (picar3) $ cd dmcar-atoi
     ```
 -   Run dmcar.py file to test the model
     ```
@@ -367,21 +348,21 @@ You will use a deep learning approach to make our picar follow lane autonomously
 -   Start Terminal, picar3 virtual environment, and go to a directory
     ```
     $ workon picar3
-    (picar3) $ cd dmcar-student/
+    (picar3) $ cd dmcar-atoi/
     ```
 -   Create a dataset by driving pycar 
     ```
     (picar3) $ python dmcar.py -b 4 -f data
-    # Check if training files are created successfully at ~/dmcar_student/model_lane_follow/train_data
+    # Check if training files are created successfully at ~/dmcar_atoi/model_lane_follow/train_data
     ``` 
 -   Run training. This will take 2 ~ 3 hours depending on size of dataset
     ```
-    (picar3) $ cd ~/dmcar-student/model_lane_follow 
+    (picar3) $ cd ~/dmcar-atoi/model_lane_follow 
     (picar3) $ python train_lane_model.py
     ```
 -   Move a created model to models directory
     ```
-    (picar3) $ cp ./model_lane_follow/train_model/lane_navigation_check.h5 ~/dmcar-student/models/lane.model
+    (picar3) $ cp ./model_lane_follow/train_model/lane_navigation_check.h5 ~/dmcar-atoi/models/lane.model
     ```
 -   Run dmcar_model.py file to test the model
     ```
@@ -410,7 +391,7 @@ Lab: Section 5. However, you can use the same Exercise Lab on your Raspberry Pi.
 -   Start Terminal, picar3 virtual environment, and go to a directory
     ```
     $ workon picar3
-    (picar3) $ cd dmcar-student/model_stop_not_stop
+    (picar3) $ cd dmcar-atoi/model_stop_not_stop
     ```
 -   Create a dataset by following the Exercise Lab under images directory
     ```
@@ -442,7 +423,7 @@ To create training model for traffic signs, use Colab for MobileNet V2 classifie
 -   Start Terminal, picar3 virtual environment, and go to a directory
     ```
     $ workon picar3
-    (picar3) $ cd dmcar-student/model_stop_not_stop
+    (picar3) $ cd dmcar-atoi/model_stop_not_stop
     ```
 -   Create a dataset (image) for Google Colab
     ```
@@ -505,18 +486,18 @@ To create re-training model for traffic signs, use Colab for EfficientDet-Lite d
 -   After taking photos, move all image files to a directory below. Start Terminal, picar3 virtual environment, and go to a directory
     ```
     $ workon picar3
-    (picar3) $ cd ~/dmcar-student/model_traffic_sign/data
+    (picar3) $ cd ~/dmcar-atoi/model_traffic_sign/data
     # Copy all files to here
     ```
 -   Label all objects (i.e., traffic sign) using labelImg python tool
     ```
     (picar3) $ cd ~/labelImg
     (picar3) $ python labelImg.py
-    # Open directory (i.e., ~/dmcar-student/model_traffic_sign/data), then perform labeling
+    # Open directory (i.e., ~/dmcar-atoi/model_traffic_sign/data), then perform labeling
     ```
 -   After labeling all images, create a dataset (data) for Google Colab
     ```
-    (picar3) $ cd ~/dmcar-student/model_traffic_sign/
+    (picar3) $ cd ~/dmcar-atoi/model_traffic_sign/
     (picar3) $ python xml_to_csv.py -d data
     (picar3) $ cat ./data/traffic_labels.csv'.csv
     # Check if csv file is created successfully
@@ -693,8 +674,8 @@ You must use Github for your documentation
 
 - test-servo.py         : test program for servo
 
-- picar                 : directory for servoes (2 back wheels and 1 front
-                        : wheels) in a car
+- atoicar               : directory for servoes (1 back wheel and 1 front
+                        : wheel) in a car
                         : mostly doesn't have to change
 
 - model_stop_not_stop   : directory for building stop_not_stop.model for
