@@ -5,39 +5,47 @@
 * Update      : Lee    2019-02-09    New release
 **********************************************************************
 '''
-from picar import back_wheels, front_wheels
-import picar
 import time
+import sys
+import atexit
 
-picar.setup()
-db_file = "/home/pi/dmcar-student/picar/config"
-fw = front_wheels.Front_Wheels(debug=False, db=db_file)
-bw = back_wheels.Back_Wheels(debug=False, db=db_file)
+sys.path.insert(0, './atoicar')
+from Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
+from Raspi_PWM_Servo_Driver import PWM
 
-bw.ready()
-fw.ready()
+# PiCar setup:  create a default object, no changes to I2C address or frequency
+bw = Raspi_MotorHAT(addr=0x6f).getMotor(3)
+atexit.register(bw.run, Raspi_MotorHAT.RELEASE)
+fw = PWM(0x6F)
+fw.setPWMFreq(60)                     # Set frequency to 60 Hz
 
-SPEED = 0
-bw.speed = SPEED
+bw.run(Raspi_MotorHAT.FORWARD);
+
+SPEED = 50
+ANGLE = 90
 
 while True:
     key = input("> ")
-    SPEED = 50
 
     if key == 'q':
         break
     elif key == 'w':
-        bw.speed = SPEED
-        bw.forward()
+        SPEED = 50
+        bw.setSpeed(SPEED)
+        bw.run(Raspi_MotorHAT.FORWARD);
     elif key == 'x':
-        bw.speed = SPEED
-        bw.backward()
+        SPEED = 50
+        bw.setSpeed(SPEED)
+        bw.run(Raspi_MotorHAT.BACKWARD);
     elif key == 'a':
-        fw.turn_left()
+        ANGLE = 65
+        fw.turn(ANGLE)
     elif key == 'd':
-        fw.turn_right()
+        ANGLE = 115
+        fw.turn(ANGLE)
     elif key == 's':
-        fw.turn_straight()
+        ANGLE = 90
+        fw.turn(ANGLE)
     elif key == 'z':
-        bw.stop()
+        bw.setSpeed(0)
 

@@ -6,60 +6,66 @@
 **********************************************************************
 '''
 
-from picar import back_wheels, front_wheels
-import picar
 import time
+import sys
+import atexit
 
-picar.setup()
-db_file = "/home/pi/dmcar-student/picar/config"
-fw = front_wheels.Front_Wheels(debug=False, db=db_file)
-bw = back_wheels.Back_Wheels(debug=False, db=db_file)
+sys.path.insert(0, './atoicar')
+from Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
+from Raspi_PWM_Servo_Driver import PWM
 
-bw.ready()
-fw.ready()
+# PiCar setup:  create a default object, no changes to I2C address or frequency
+bw = Raspi_MotorHAT(addr=0x6f).getMotor(3)
+atexit.register(bw.run, Raspi_MotorHAT.RELEASE)
+fw = PWM(0x6F)
+fw.setPWMFreq(60)                     # Set frequency to 60 Hz
+
+bw.run(Raspi_MotorHAT.FORWARD);
  
 SPEED = 50
 
 # ============== Back wheels =============
-# 'bwready':
-#bw.ready()
+# 'forward':
 
-for i in range(10, 101,10):
-    bw.speed = i
-    bw.forward()
+for i in range(40, 100, 10):
+    bw.setSpeed(i)
+    bw.run(Raspi_MotorHAT.FORWARD);
     time.sleep(2)
 	
-# 'forward':
-bw.speed = SPEED
-bw.forward()
-time.sleep(1)
-		
 # 'backward':
-bw.speed = SPEED
-bw.backward()
-time.sleep(1)
+for i in range(40, 100, 10):
+    bw.setSpeed(i)
+    bw.run(Raspi_MotorHAT.BACKWARD);
+    time.sleep(2)
 
 # 'stop':
-bw.stop()
+bw.setSpeed(0)
+bw.run(Raspi_MotorHAT.RELEASE)
 
 # ============== Front wheels =============
 # Turn Left
-fw.turn_left()
+ANGLE = 65
+fw.turn(ANGLE)
 time.sleep(1)
 
 # Straight
-fw.turn_straight()
+ANGLE = 90
+fw.turn(ANGLE)
 time.sleep(1)
 
 # Turn Right
-fw.turn_right()
+ANGLE = 115
+fw.turn(ANGLE)
 time.sleep(1)
 
 # Straight
+ANGLE = 90
+fw.turn(ANGLE)
+time.sleep(1)
 fw.turn_straight()
 
-# Angle 45 degree to 135 degree
-for i in range(45, 135, 5):
+# Angle 60 degree to 120 degree
+for i in range(60, 120, 5):
     print(i)
     fw.turn(i)
     time.sleep(1)
