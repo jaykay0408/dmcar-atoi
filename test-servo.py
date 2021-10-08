@@ -62,7 +62,6 @@ time.sleep(1)
 ANGLE = 90
 fw.turn(ANGLE)
 time.sleep(1)
-fw.turn_straight()
 
 # Angle 60 degree to 120 degree
 for i in range(60, 120, 5):
