@@ -37,6 +37,7 @@ project GitHub site
 | Wooden Stop Sign                           |     12.99 |     1    | https://www.amazon.com/dp/B076FL4HSK/             |
 | Google Coral USB Accelerator               |     59.99 |     1    | https://coral.ai/products/accelerator             |
 | * USB Web Camera (120 degree)              |      6.99 |     1    | https://www.amazon.com/dp/B08G48M1XH/             | 
+| USB Step-Down Power Module                 |     10.29 |     5    | https://www.amazon.com/dp/B07XD35FHR/             |
 | * 18650 Battery Box                        |      7.69 |     5    | https://www.amazon.com/dp/B08LZ3553W/             |
 | * 18650 Batteries 6000mah 3.7v With Charger|      8.64 |     1    | [Ebay link](https://www.ebay.com/p/4pcs-18650-Batteries-6000mah-3-7v-Rechargeable-Li-ion-Battery-With-Charger/23024017467?iid=382745853004)                                              |
 | ***Total Price per Car***                        | ***120 ~ 270*** |     1    |                                                   |
