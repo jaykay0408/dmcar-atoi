@@ -54,7 +54,7 @@ As an autonomous vehicle for this lab, we are going to use "Elecrow 4WD Chassis 
 -   Name in this project: AtoI-Car
 -   URL: <https://www.elecrow.com/4wd-smart-car-robot-chassis-for-arduino-servo-steering.html>
 
-![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/atoi-car.jpg)
+![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/atoi-car-3.jpg)
 
 You can assembly a car using the instruction included in a box. However,
 the quality of printed images is not clear, so you should be very
