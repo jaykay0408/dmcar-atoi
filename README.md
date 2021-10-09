@@ -47,7 +47,7 @@ project GitHub site
 
 ## Phase 1: Assembly an Autonomous Vehicle
 
-Assembly Instruction at http://bit.ly/DMCAR1
+Assembly Instruction at http://bit.ly/DMCAR1ATOI
 
 As an autonomous vehicle for this lab, we are going to use "Elecrow 4WD Chassis Smart Car" as below:
 -   Model: Elecrow 4WD Chassis Smart Car
