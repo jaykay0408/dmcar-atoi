@@ -227,7 +227,7 @@ login Raspberry Pi using VNC viewer (or ssh).
 Start virtualenv (name 'picar3')
 
     $ workon picar3
-    $ dmcar-student
+    (picar3) $ cd dmcar-atoi
 
 dmcar-atoi consist of the following files and directory:
 
@@ -440,8 +440,8 @@ To create training model for traffic signs, use Colab for MobileNet V2 classifie
 -   When finishing the Colab, model file will be downloaded to your /home/pi/Downloads. Move the downloaded model file to models directory
     ```
     (picar3) $ cd ~
-    (picar3) $ mv ./Downloads/stop_not_stop.tflite ./dmcar-student/models
-    (picar3) $ mv ./Downloads/stop_not_stop.txt ./dmcar-student/models
+    (picar3) $ mv ./Downloads/stop_not_stop.tflite ./dmcar-atoi/models
+    (picar3) $ mv ./Downloads/stop_not_stop.txt ./dmcar-atoi/models
 -   If model name is different from "stop\_not\_stop.model", change
     MODEL\_PATH and LABEL\_PATH at dmcar_coral.py
     ```
@@ -514,9 +514,9 @@ To create re-training model for traffic signs, use Colab for EfficientDet-Lite d
 -   When finishing the Colab, model file will be downloaded to your /home/pi/Downloads. Move the downloaded model file to models directory
     ```
     (picar3) $ cd ~
-    (picar3) $ mv ./Downloads/traffic_sign_edgetpu.tflite ./dmcar-student/models
-    (picar3) $ mv ./Downloads/traffic_sign.tflite ./dmcar-student/models
-    (picar3) $ mv ./Downloads/traffic_sign.txt ./dmcar-student/models
+    (picar3) $ mv ./Downloads/traffic_sign_edgetpu.tflite ./dmcar-atoi/models
+    (picar3) $ mv ./Downloads/traffic_sign.tflite ./dmcar-atoi/models
+    (picar3) $ mv ./Downloads/traffic_sign.txt ./dmcar-atoi/models
 -   You can use either traffic_sign_edgetpu.tflite or traffic_sign.tflite. edgetpu.tflite is move efficient and less power comsumption. If model name is different, change MODEL\_PATH and LABEL\_PATH at dmcar_coco.py
     ```
     # define the paths to the Stop/Non-Stop Keras learning model
@@ -644,7 +644,7 @@ You must use Github for your documentation
 -   Also, submit 5 minutes final video or Youtube link
 -   Submission: Github link to Canvas
 
-# dmcar-student Files
+# dmcar-atoi Files
 - dmcar.py              : main file to control autonomous car with Stop detector
                         : $ python dmcar.py -b 4
                         : MODEL: stop_not_stop.model
