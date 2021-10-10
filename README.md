@@ -49,6 +49,8 @@ project GitHub site
 
 Assembly Instruction at http://bit.ly/DMCAR1ATOI
 
+![Alt text](https://github.com/jaykay0408/Auto-Car-Data-Mining/blob/master/Images/atoi-car2.jpg)
+
 As an autonomous vehicle for this lab, we are going to use "Elecrow 4WD Chassis Smart Car" as below:
 -   Model: Elecrow 4WD Chassis Smart Car
 -   Name in this project: AtoI-Car
