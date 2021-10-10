@@ -60,7 +60,7 @@ You can assembly a car using the instruction included in a box. However,
 the quality of printed images is not clear, so you should be very
 careful to assembly the car. 
 
-In addition, you need to follow the instruction “Servo Calibration” before you secure 3 servos (pan, tilt and steering).  
+In addition, you need to follow the instruction “Servo Calibration” before you secure a servo for steering.  
 
 Before the assembly, calibrate a servo motor by checking 90 degree of a servo arm
 -   Connect a servo motor to Motor HAT contoller before assembling each servo 
@@ -81,7 +81,7 @@ Before the assembly, calibrate a servo motor by checking 90 degree of a servo ar
 
 ## Phase 2: Setting-Up Raspberry Pi
 
-AtoI-Car has Raspberry Pi 4B Motor HAT(Controller) that includes the following functions:
+AtoI-Car uses Raspberry Pi Motor HAT(Controller) that includes the following functions:
 -   Up to 4 bi-directional DC motors with individual 8-bit speed selection (so, about 0.5% resolution)
 -   Up to 2 stepper motors (unipolar or bipolar) with single coil, double coil, interleaved or micro-stepping.
 -   Up to 4 Channel 12-bit PWM/Servo(5V)
@@ -111,6 +111,7 @@ Note that if an instructor provides pre-configured SD Card, move to Step
         Otherwise, you can download 2 files from class Github
 
 **Step 3**: Connect to Raspberry Pi using USB Serial Cable
+
 If you know IP address of your Raspberry Pi, skip Step 3. Then, move to Step 4. This step is for setting-up wi-fi on your Raspberry Pi first time.
 For more information about the connection to Rapsberry Pi using USB Serial Cable, you can refer the following slide at http://bit.ly/DMCAR4 
 
@@ -128,6 +129,7 @@ For more information about the connection to Rapsberry Pi using USB Serial Cable
 -   [Step 6] Check IP address
 
 **Step 4**: Connect to Raspberry Pi using VNC viewer
+
 For more information about the connection to Rapsberry Pi, you can refer the following slide at http://bit.ly/DMCAR3 
 
 -   ***Option 1***: directly setup wi-fi using a mice, a keyboard and a
