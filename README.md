@@ -324,10 +324,10 @@ dmcar-atoi consist of the following files and directory:
 
 ## Phase 4: Lane Follower for Autonomous Car
 In this phase, you are going to make picar follow lanes, a.k.a lane follower. There are 2 methods as below:
--   Method 1: Lane follwer using OpenCV
--   Method 2: Lane follwer using Deep Learning model (i.e., NVIDIA CNN model)
+-   Method 1: Lane follower using OpenCV
+-   Method 2: Lane follower using Deep Learning model (i.e., NVIDIA CNN model)
 
-### Method 1: Lane follwer using OpenCV 
+### Method 1: Lane followerusing OpenCV 
 You will use a popular, open-source computer vision package, called OpenCV, to help picar autonomously navigate within a lane.
 -   Start Terminal, picar3 virtual environment, and go to a directory
     ```
