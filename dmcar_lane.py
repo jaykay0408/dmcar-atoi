@@ -53,7 +53,10 @@ start_time = 0.0
 
 def main():
     # Grab the reference to the webcam
-    vs = VideoStream(src=-1).start()
+    #vs = VideoStream(src=-1).start()
+    vs = cv2.VideoCapture(-1)
+    vs.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+    vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 
     # detect lane based on the last # of frames
     frame_buffer = deque(maxlen=args["buffer"])
@@ -84,7 +87,7 @@ def main():
     # keep looping
     while True:
         # grab the current frame
-        frame = vs.read()
+        ret, frame = vs.read()
         if frame is None:
             break
 
@@ -167,8 +170,9 @@ def main():
             bw.run(Raspi_MotorHAT.RELEASE);
 
     # if we are not using a video file, stop the camera video stream
-    writer.release()
-    vs.stop()
+    if writer is not None:
+        writer.release()
+    vs.release()
 
     # initialize picar
     bw.setSpeed(0)
