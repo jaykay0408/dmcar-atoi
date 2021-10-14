@@ -6,6 +6,7 @@
 # import the necessary packages
 from keras.preprocessing.image import img_to_array
 from keras.models import load_model
+import tensorflow as tf
 from collections import deque
 from imutils.video import VideoStream
 import numpy as np
@@ -41,6 +42,7 @@ MODEL_PATH = "./models/stop_not_stop.model"
 
 # to hide warning message for tensorflow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 # Start Queues
 show_queue = queue.Queue()
@@ -61,7 +63,10 @@ def main():
     model = load_model(MODEL_PATH)
 
     # Grab the reference to the webcam
-    vs = VideoStream(src=-1).start()
+    #vs = VideoStream(src=-1).start()
+    vs = cv2.VideoCapture(-1)
+    vs.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+    vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 
     # detect lane based on the last # of frames
     frame_buffer = deque(maxlen=args["buffer"])
@@ -91,7 +96,7 @@ def main():
     # initialize the total number of frames that *consecutively* contain
     # stop sign along with threshold required to trigger the sign alarm
     TOTAL_CONSEC = 0
-    TOTAL_THRESH = 3            # fast speed-> low, slow speed -> high
+    TOTAL_THRESH = 2            # fast speed-> low, slow speed -> high
     STOP_SEC = 0
     AFTER_STOP_SEC = 0          # skip frames after detection
     STOP = False                # If STOP is detected
@@ -102,7 +107,7 @@ def main():
     # keep looping
     while True:
         # grab the current frame
-        frame = vs.read()
+        ret, frame = vs.read()
         if frame is None:
             break
 
@@ -269,8 +274,9 @@ def main():
             bw.run(Raspi_MotorHAT.RELEASE)
 
     # if we are not using a video file, stop the camera video stream
-    writer.release()
-    vs.stop()
+    if writer is not None:
+        writer.release()
+    vs.release()
 
     # initialize picar
     bw.setSpeed(0)
