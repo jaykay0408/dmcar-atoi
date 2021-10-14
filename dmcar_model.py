@@ -24,6 +24,7 @@ import os
 import sys
 import atexit
 from keras.models import load_model
+import tensorflow as tf
 
 sys.path.insert(0, './atoicar')
 from Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
@@ -44,6 +45,7 @@ MODEL_PATH = "./models/lane.model"
 
 # to hide warning message for tensorflow
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 # PiCar setup:  create a default object, no changes to I2C address or frequency
 bw = Raspi_MotorHAT(addr=0x6f).getMotor(3)
@@ -59,7 +61,10 @@ def main():
     model = load_model(MODEL_PATH)
 
     # Grab the reference to the webcam
-    vs = VideoStream(src=0).start()
+    #vs = VideoStream(src=0).start()
+    vs = cv2.VideoCapture(-1)
+    vs.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+    vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)
 
     # detect lane based on the last # of frames
     frame_buffer = deque(maxlen=args["buffer"])
@@ -94,7 +99,7 @@ def main():
     # keep looping
     while True:
         # grab the current frame
-        frame = vs.read()
+        ret, frame = vs.read()
         if frame is None:
             break
 
@@ -172,8 +177,9 @@ def main():
     	    bw.run(Raspi_MotorHAT.RELEASE)
 
     # if we are not using a video file, stop the camera video stream
-    writer.release()
-    vs.stop()
+    if writer is not None:
+        writer.release()
+    vs.release()
    
     # initialize picar
     bw.setSpeed(0)
