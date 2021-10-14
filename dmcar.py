@@ -251,7 +251,7 @@ def main():
             bw.run(Raspi_MotorHAT.FORWARD);
         elif keycmd == 'x':
             bw.setSpeed(SPEED)
-            bw.run(Raspi_MotorHAT.BACKWORD);
+            bw.run(Raspi_MotorHAT.BACKWARD);
         elif keycmd == 'a':
             ANGLE -= 5
             if ANGLE <= 45:
